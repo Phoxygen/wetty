@@ -1,0 +1,21 @@
+{
+  "name": "Wetty",
+  "description": "Terminal in browser over http/https",
+  "launch_path": "/",
+  "icons": {
+    "128": "/wetty_128.png",
+    "60": "/wetty_60.png",
+    "90": "/wetty_90.png",
+    "32": "/favicon.png"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "fullscreen": "true",
+  "developer": {
+    "name": "Krishna Srinivas",
+    "url": "https://github.com/krishnasrinivas/wetty"
+  },
+  "default_locale": "en",
+  "version": "0.2.0"
+}
