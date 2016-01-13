@@ -1,3 +1,4 @@
+require('systemd');
 var express = require('express');
 var http = require('http');
 var https = require('https');
@@ -85,9 +86,9 @@ if (runhttps) {
         console.log('https on port ' + opts.port);
     });
 } else {
-    httpserv = http.createServer(app).listen(opts.port, function() {
-        console.log('http on port ' + opts.port);
-    });
+    httpserv = http.createServer(
+      app
+    ).listen(opts.port);
 }
 
 var io = server(httpserv,{path: '/wetty/socket.io'});
