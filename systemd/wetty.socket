@@ -1,0 +1,8 @@
+[Unit]
+Description=Wetty node app socket
+
+[Socket]
+ListenStream=9999
+
+[Install]
+WantedBy=sockets.target
