@@ -2,7 +2,7 @@
 Description=Wetty node app
 
 [Service]
-ExecStart=/usr/bin/node /opt/b2g/wetty/app.js -p 9999 -sshauth publickey,password
+ExecStart=/usr/bin/nodejs /opt/b2g/wetty/app.js -p 9999 -sshauth publickey,password
 Environment=NODE_ENV=production
 StandardOutput=syslog
 SyslogIdentifier=wetty
