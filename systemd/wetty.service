@@ -1,0 +1,8 @@
+[Unit]
+Description=Wetty node app
+
+[Service]
+ExecStart=/usr/bin/nodejs /opt/b2g/wetty/app.js -p systemd --sshauth publickey,password
+StandardOutput=syslog
+SyslogIdentifier=wetty
+Type=simple
