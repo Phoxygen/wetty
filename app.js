@@ -1,3 +1,4 @@
+require('systemd');
 var express = require('express');
 var http = require('http');
 var https = require('https');
@@ -80,14 +81,16 @@ app.get('/wetty/ssh/:user', function(req, res) {
 });
 app.use('/', express.static(path.join(__dirname, 'public')));
 
+var port = process.env.NODE_ENV == 'production' ? 'systemd' : opts.port;
 if (runhttps) {
-    httpserv = https.createServer(opts.ssl, app).listen(opts.port, function() {
+    httpserv = https.createServer(opts.ssl, app).listen(
+      port, function() {
         console.log('https on port ' + opts.port);
     });
 } else {
-    httpserv = http.createServer(app).listen(opts.port, function() {
-        console.log('http on port ' + opts.port);
-    });
+    httpserv = http.createServer(
+      app
+    ).listen(port);
 }
 
 var io = server(httpserv,{path: '/wetty/socket.io'});
